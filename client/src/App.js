@@ -7,7 +7,6 @@ import MovieList from './Movies/MovieList';
 
 import Movie from './Movies/Movie';
 
-
 import SavedList from './Movies/SavedList';
 
 const App = () => {
@@ -17,11 +16,13 @@ const App = () => {
     setSavedList( [...savedList, movie] );
   };
 
+  // route props is different from props 
+
   return (
     <div>
       <SavedList list={savedList} />
-      <Route path="/movielist" render={() => <MovieList movieList={MovieList}/>}>MovieList</Route>
-      <Route path="/movies/:id" render={() => <Movie movie={Movie}/>}>Movies</Route>
+      <Route exact path="/" render={() => <MovieList movieList={MovieList}/>}/>
+      <Route path="/movies/:id" render={(routeProps) => <Movie {...routeProps} />}/>
     </div>
   );
 };

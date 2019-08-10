@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Movie = (props) => {
-  const [movie, setMovie] = useState({});
- 
+  const [movie, setMovie] = useState();
+ console.log(props)
   useEffect(() => {
     const id = props.id;
     // change ^^^ that line and grab the id from the URL
